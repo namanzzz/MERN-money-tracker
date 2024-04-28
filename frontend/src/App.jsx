@@ -1,18 +1,34 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function App() {
+  
+  const [name, setName] = useState('');
+  const [datetime, setDatetime] = useState('');
+  const [description, setDescription] = useState('');
+
+  const handleSubmit = () => {
+    
+  }
+
   return (
     <main>
       <h1>RS 400<span>.00</span></h1>
-      <form>
+      <form onSubmit={handleSubmit}>
 
         <div className='basic'>
-            <input type="text" placeholder='+20000 new samsung tv'/>
-            <input type="datetime-local" />
+            <input type="text"
+            value={name}
+            onChange={e => setName(e.target.value)}
+            placeholder='+20000 new samsung tv'/>
+            <input type="datetime-local"
+                value={datetime}
+                onChange={e=>setDatetime(e.target.value)}
+            />
         </div>
 
         <div className='description'>
-            <input type="text" placeholder='description'/>
+            <input type="text" placeholder='description'
+            onChange={e=>setDescription(e.target.value)}/>
         </div>
         
         <button>Add new transaction</button>
