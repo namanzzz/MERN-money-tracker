@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+
+import React, { useState} from 'react'
 
 function App() {
   
@@ -6,8 +7,10 @@ function App() {
   const [datetime, setDatetime] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleSubmit = () => {
-    
+  const handleSubmit = (e) => {
+   e.preventDefault();
+   const url = process.env.REACT_APP_API_URL + '/transaction';
+   console.log(url);
   }
 
   return (
