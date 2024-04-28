@@ -10,7 +10,12 @@ function App() {
   const handleSubmit = (e) => {
    e.preventDefault();
    const url = process.env.REACT_APP_API_URL + '/transaction';
-   console.log(url);
+  //  console.log(url);
+    fetch(url, {
+      method: 'POST',
+      headers: {'Content-type':'application/json'},
+      body: JSON.stringify({name, description, datetime})
+    }).then(res => res.json().then((json)=>{console.log(json)}));
   }
 
   return (
