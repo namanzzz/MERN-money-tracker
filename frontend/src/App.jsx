@@ -26,6 +26,8 @@ function App() {
     
   }, []); // render transactions once when component mounts
 
+
+
   const handleSubmit = (e) => {
    e.preventDefault();
    const url = process.env.REACT_APP_API_URL + '/transaction';
@@ -48,10 +50,17 @@ function App() {
       
       console.log(json)}));
   }
-
+  let balance = 0;
+  for(const transaction of transactions){
+    balance = balance + transaction.price;
+    
+  }
+  balance = balance.toFixed(2);
+  const fraction = balance.split('.')[1];
+  balance = balance.split('.')[0];  
   return (
     <main>
-      <h1>RS 400<span>.00</span></h1>
+      <h1>RS {balance}<span>.{fraction}</span></h1>
       <form onSubmit={handleSubmit}>
 
         <div className='basic'>

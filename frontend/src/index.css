@@ -3,19 +3,13 @@
 }
 body{
     font-family: Arial, sans-serif;
-    background: rgb(31, 21, 21);
+    background: rgb(14, 10, 10);
     color: #ddd;
 } 
 
 main{
   max-width: 360px;
   margin: 30px auto;
-}
-
-h1{
-  text-align: center;
-  color: #fff;
-  margin: 0;
 }
 
 form{
@@ -89,4 +83,19 @@ div.price.red{
 div.transaction div.datetime{
   font-size: .7rem;
   color: #888;
+}
+
+h1{
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  font-family:monospace;
+  font-size: 2.5rem;
+}
+
+h1 span{
+  font-size: 1.2rem;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 6px;
 }
