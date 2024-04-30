@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const {Schema, model} = require('mongoose');
 
 const TransactionSchema = new Schema({
+    
+    price: {type: Number, required: true},
     name: {type: String, required: true},
     description: {type: String, required: false},
     datetime: {type: Date, required: true},

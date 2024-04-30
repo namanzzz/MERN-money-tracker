@@ -14,11 +14,12 @@ app.get('/api/test', (req, res)=>{
 app.post('/api/transaction', async (req,res)=>{
     // console.log(process.env.MONGO_URL);
     await mongoose.connect(process.env.MONGO_URL)
-    const {name,description,datetime} = req.body;
+    const {name,description,datetime, price} = req.body;
     const transaction = new Transaction({
         name,
         description,
         datetime,
+        price
     });
     transaction.save();
     res.json(transaction);

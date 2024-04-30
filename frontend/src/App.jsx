@@ -10,12 +10,24 @@ function App() {
   const handleSubmit = (e) => {
    e.preventDefault();
    const url = process.env.REACT_APP_API_URL + '/transaction';
+   const price = name.split(' ')[0];
   //  console.log(url);
     fetch(url, {
       method: 'POST',
       headers: {'Content-type':'application/json'},
-      body: JSON.stringify({name, description, datetime})
-    }).then(res => res.json().then((json)=>{console.log(json)}));
+      body: JSON.stringify({
+        price,
+        name:name.substring(price.length + 1),         
+        description, 
+        datetime})
+    }).then(res => res.json().then((json)=>{
+      
+      setName('');
+      setDatetime('');
+      setDescription('');
+      
+      
+      console.log(json)}));
   }
 
   return (
